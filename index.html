@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<meta name="viewport" content="width=750,user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="css/我的酷狗.css"/>
+	<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+	<body>
+		<div class="boxx">
+			<div class="box">
+				<!--设计顶部-->
+				<div class="top">
+					<div class="bendi"><sapn> < 本 地 音 乐</sapn></div>
+					<div class="ztl">
+						<span id="danqu">单曲</span>
+						<span id="geshou">歌手</span>
+						<span id="zhuangji">专辑</span>
+						<span id="wenjianjia">文件夹</span>
+					</div>
+					<div class="topSize">
+						<div class="topLeft">
+							<span id="musicSuiji" class="iconfont icon-suiji-copy"></span>
+							<span id="bofangon" class="iconfont icon-bofangon"></span>
+						</div>
+						<div class="topRight">
+							<span id="search" class="iconfont icon-icon_search"></span>
+							<span id="paixu" class="iconfont icon-paixu"></span>
+							<span id="gengduo" class="iconfont icon-gengduoxuanzhong"></span>
+						</div>
+					</div>
+				</div>
+			
+				<!--设计中部的选歌界面-->
+				<div class="cente">
+					<div><span class="iconfont icon-tianjia"></span><b id="gequ0"> 下雪的季节  --  本兮</b><span style="float: right; padding-right: 50px;" class="iconfont icon-gengduoxuanxiang"></span></div>
+					<div><span class="iconfont icon-tianjia"></span><b id="gequ1"> 白山茶 - - 陈雪凝</b><span style="float: right; padding-right: 50px;" class="iconfont icon-gengduoxuanxiang"></span></div>
+					<div><span class="iconfont icon-tianjia"></span><b id="gequ2"> 下雪的季节</b><span style="float: right; padding-right: 50px;" class="iconfont icon-gengduoxuanxiang"></span></div>
+					<div><span class="iconfont icon-tianjia"></span><b id="gequ3"> 下雪的季节</b><span style="float: right; padding-right: 50px;" class="iconfont icon-gengduoxuanxiang"></span></div>
+					<div><span class="iconfont icon-tianjia"></span><b id="gequ4"> 下雪的季节</b><span style="float: right; padding-right: 50px;" class="iconfont icon-gengduoxuanxiang"></span></div>
+					<div><span class="iconfont icon-tianjia"></span><b id="gequ5"> 下雪的季节</b><span style="float: right; padding-right: 50px;" class="iconfont icon-gengduoxuanxiang"></span></div>
+					<div><span class="iconfont icon-tianjia"></span><b id="gequ6"> 下雪的季节</b><span style="float: right; padding-right: 50px;" class="iconfont icon-gengduoxuanxiang"></span></div>
+					<div><span class="iconfont icon-tianjia"></span><b id="gequ7"> 下雪的季节</b><span style="float: right; padding-right: 50px;" class="iconfont icon-gengduoxuanxiang"></span></div>
+				</div>
+				
+				<!--底部换歌-->
+				<div class="bott">
+					<div class="musicImg"><img src="img/dongtian1.jpg"/></div>
+					<div class="text">白山茶 --- 陈雪凝</div>
+					<div class="change">
+						<span id="bf" class="iconfont icon-bofangon"></span>
+						<span id="next" class="iconfont icon-xiayigexiayishou"></span>
+						<span id="liebiao" class="iconfont icon-liebiao"></span>
+						<!--iconfont icon-bofangqizanting-->
+					</div>
+				</div>
+			</div>
+			<div class="musicText">
+				<iframe id="musicText" src=""></iframe>
+			</div>
+		</div>
+		<audio id="music" src="" ></audio>
+		<script type="text/javascript">
+		//图片旋转功能设置
+//		var timeNumber = 0;
+//		var clearTime = setInterval(function(){
+////					clearInterval(clearTime);      时间函数停止执行
+//			document.querySelector(".musicImg").style.transform = "rotateZ("+timeNumber+"deg)"
+//			timeNumber++;
+//		},10);   //1000毫秒执行一次
+			var musicImg = document.querySelector(".musicImg");
+		
+		//下面是歌曲切换，播放暂停音乐设置。
+			var play = document.querySelector("#bf");
+			var music = document.querySelector("#music");
+			var musicText = document.querySelector("#musicText");
+			var bool = false;
+			
+			music.currentTime
+			//切换歌曲
+			play.onclick = function(){
+				if(bool){
+					music.src = musicList[musicNumber].musicUrl;
+					music.play();
+					musicImg.style.animation = " donghua 5s";
+					musicImg.style.animationIterationCount = "infinite";
+					play.className = "iconfont icon-bofangqizanting";
+					musicText.src = "text/"+musicList[0].musicName+".txt";
+					bool = false;
+				}else{
+					music.pause();
+					musicImg.style.animation = " donghua  paused";
+					play.className = "iconfont icon-bofangon";
+					bool = true;
+				}
+			}
+			
+			var begin = 0;
+			//下一首歌
+			var musicList = [
+//						{musicName:"Best Friend",author:"本兮",musicUrl:"music/本兮 - Best Friend.mp3"},
+						{musicName:"爱你卡农",author:"本兮",musicUrl:"music/本兮 - 爱你卡农.mp3"},
+//						{musicName:"爱你那么多",author:"本兮",musicUrl:"music/本兮 - 爱你那么多.mp3"},
+//						{musicName:"卑恋",author:"本兮",musicUrl:"music/本兮 - 卑恋.mp3"},
+						
+						{musicName:"本性",author:"本兮",musicUrl:"music/本兮 - 本性.mp3"},
+						{musicName:"超速度",author:"本兮",musicUrl:"music/本兮 - 超速度 .flac"},
+//						{musicName:"三号零八零七",author:"本兮",musicUrl:"music/本兮 - 三号零八零七（侵权版）.mp3"},
+						{musicName:"创作者",author:"本兮",musicUrl:"music/本兮 - 创作者.mp3"},
+//						{musicName:"我梦见我梦见我",author:"本兮",musicUrl:"music/本兮 - 我梦见我梦见我.mp3"},
+//						{musicName:"默默那个我",author:"本兮",musicUrl:"music/本兮 - 默默那个我（侵权版）.mp3"},
+//						{musicName:"生世陌概花",author:"本兮",musicUrl:"music/本兮 - 生世陌概花.mp3"},
+//						
+						{musicName:"下雪的季节",author:"本",musicUrl:"music/本兮 - 下雪的季节.flac"},
+						{musicName:"曾经的曾经",author:"本",musicUrl:"music/本兮 - 曾经的曾经.mp3"},
+						{musicName:"最sweet",author:"兮",musicUrl:"music/本兮 - 最sweet.mp3"},
+						{musicName:"最初的依赖",author:"兮",musicUrl:"music/本兮 - 最初的依赖.mp3"}
+			];
+			var musicNumber = 0;
+			//下一首歌曲
+			document.querySelector("#next").onclick = function(){
+				if(musicNumber>=8){
+					musicNumber = 0;
+				}
+				music.src = musicList[musicNumber].musicUrl;
+				music.play();
+				musicImg.style.animation = " donghua 5s";
+				musicImg.style.animationIterationCount = "infinite";
+				play.className = "iconfont icon-bofangqizanting";
+				musicText.src = "text/"+musicList[musicNumber].musicName+".txt";
+				
+				//换歌曲播放信息
+				change(musicNumber);
+//				document.querySelector(".text").innerHTML = musicList[musicNumber].musicName+" -- "+musicList[musicNumber].author;
+//				for(var j = 0;j < musicList.length;j ++){
+//						document.querySelector("#gequ"+j).parentElement.style.background = "white";
+//					}
+//				document.querySelector("#gequ"+musicNumber).parentElement.style.background = "lightskyblue";//改变背景颜色
+				musicNumber++;
+			}
+			//随机下一首歌曲
+			document.querySelector("#musicSuiji").onclick = function(){
+				musicNumber = parseInt(Math.random()*8);
+				music.src = musicList[musicNumber].musicUrl;
+				music.play();
+				musicImg.style.animation = " donghua 5s";
+				musicImg.style.animationIterationCount = "infinite";
+				play.className = "iconfont icon-bofangqizanting";
+				musicText.src = "text/"+musicList[musicNumber].musicName+".txt";
+				//换歌曲播放信息
+				change(musicNumber);
+				musicNumber++;
+			}
+			//歌曲列表
+			var musicNameList = document.querySelectorAll(".cente div b");
+//			console.log(musicNameList)
+			for(var i = 0;i < musicNameList.length;i ++){
+//				console.log(musicNameList[i]);
+				musicNameList[i].innerHTML = musicList[i].musicName+" - - - "+musicList[i].author;
+			}
+			document.querySelector("#danqu").onclick = function(){
+				for(var i = 0;i < musicNameList.length;i ++){
+//				console.log(musicNameList[i]);
+					musicNameList[i].innerHTML = musicList[i].musicName+" - - - "+musicList[i].author;
+				}
+			}
+			//liebiao
+			document.querySelector("#liebiao").onclick = function(){
+				for(var i = 0;i < musicNameList.length;i ++){
+//				console.log(musicNameList[i]);
+					musicNameList[i].innerHTML = musicList[i].musicName+" - - - "+musicList[i].author;
+				}
+			}
+			
+			//点击歌曲列表，就播放这首歌曲
+//			var musicNameLi = document.querySelector(".cente b");
+//			musicNameLi.onclick(event) = function(){
+//				console.log(event.target);
+//			}
+			for(var i = 0;i < musicList.length;i ++){
+//				id="gequ1"
+				document.querySelector("#gequ"+i).onclick = function(event){
+					//选择歌曲
+					var idNum = Number(event.target.id.charAt(4));
+					music.src = musicList[idNum].musicUrl;
+					music.play();
+					musicImg.style.animation = " donghua 5s";
+					musicImg.style.animationIterationCount = "infinite";
+					play.className = "iconfont icon-bofangqizanting";
+					musicNumber = idNum+1;
+					musicText.src = "text/"+musicList[idNum].musicName+".txt";
+					
+					change(idNum);
+					//点击列表歌曲，以背景颜色标记
+//					console.log(event)
+//					for(var j = 0;j < musicList.length;j ++){
+//						document.querySelector("#gequ"+j).parentElement.style.background = "white";
+//					}
+//					event.target.parentElement.style.background = "lightskyblue";//改变背景颜色
+//					//换歌曲播放信息
+//					document.querySelector(".text").innerHTML = musicList[idNum].musicName+" -- "+musicList[idNum].author;
+				}
+			}
+			function change(i){
+				for(var j = 0;j < musicList.length;j ++){
+						document.querySelector("#gequ"+j).parentElement.style.background = "white";
+					}
+				document.querySelector("#gequ"+i).parentElement.style.background = "lightskyblue";//改变背景颜色
+				//换歌曲播放信息
+				document.querySelector(".text").innerHTML = musicList[i].musicName+" -- "+musicList[i].author;
+			}
+			
+			//bofangon
+			document.querySelector("#bofangon").onclick=function(){
+				music.play();
+				musicImg.style.animation = " donghua 5s";
+				musicImg.style.animationIterationCount = "infinite";
+				play.className = "iconfont icon-bofangqizanting";
+				musicText.src = "text/"+musicList[0].musicName+".txt";
+				bool = false;
+			}
+			//search
+			document.querySelector("#search").onclick=function(){
+				alert("好看的按钮，不用再点了")
+			}
+			//paixu
+//			var boolPaixu = true;
+			document.querySelector("#paixu").onclick=function(){
+//				alert("好看的按钮，不用再点了")
+				console.log(musicNameList[0].innerHTML);
+				for(var i = 0;i < 4;i ++){
+					var numH = musicNameList[i].innerHTML;
+					musicNameList[i].innerHTML = musicNameList[7-i].innerHTML;
+					musicNameList[7-i].innerHTML = numH;
+				}
+			}
+			//gengduo
+			document.querySelector("#gengduo").onclick=function(){
+				alert("好看的按钮，不用再点了")
+			}
+			
+			//歌手界面
+			var arr = [{a:"",b:0},{a:"",b:0},{a:"",b:0},{a:"",b:0},{a:"",b:0},{a:"",b:0},{a:"",b:0},{a:"",b:0}];
+			for(var i = 0; i < musicList.length; i++){
+				for(var j = 0;j < arr.length;j ++){
+					if(arr[j][0]==musicList[i].author){
+						arr[j][1] +=1;
+						break;
+					}else if(arr[j][0]==null){
+						arr[j][0] = musicList[i].author;
+						arr[j][1] =1;
+						break;
+					}else{
+//						continue;
+					}
+				}
+			}
+			console.log(arr);
+			
+			document.querySelector("#geshou").onclick = function(){
+				for(var i = 0;i < musicNameList.length;i ++){
+//				console.log(musicNameList[i]);
+					if(arr[i][0]==null){
+						musicNameList[i].innerHTML = "  --  ";
+					}else{
+						musicNameList[i].innerHTML = arr[i][0]+"  --  "+arr[i][1]+"首歌";
+					}
+				}
+			}
+			//专辑界面  zhuangji
+			document.querySelector("#zhuangji").onclick = function(){
+				for(var i = 0;i < musicNameList.length;i ++){
+//				console.log(musicNameList[i]);
+					if(arr[i][0]==null){
+						musicNameList[i].innerHTML = "  --  ";
+					}else{
+						musicNameList[i].innerHTML = arr[i][0]+"的专辑";
+					}
+				}
+			}
+			
+			//文件夹界面  wenjianjia
+			document.querySelector("#wenjianjia").onclick = function(){
+				for(var i = 0;i < musicNameList.length;i ++){
+//				console.log(musicNameList[i]);
+					if(arr[i][0]==null){
+						musicNameList[i].innerHTML = "  --  ";
+					}else{
+						musicNameList[i].innerHTML = "这是"+arr[i][0]+"的文件夹";
+					}
+				}
+			}
+		</script>
+		
+	</body>
+</html>

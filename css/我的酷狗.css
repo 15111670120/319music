@@ -1,0 +1,180 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+html,body{
+	max-width: 750px;
+	min-width: 750px;
+	min-height: 1000px;
+	max-height: 1000px;
+}
+.boxx{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.musicText{
+	width: 750px;
+	height: 320px;
+}
+.musicText iframe{
+	width: 100%;
+	height: 100%;
+	font-size: 54px;
+}
+.box{
+	margin: 0 auto;
+	width: 100%;
+	height: 1000px;
+	display: flex;
+	flex-direction: column;
+	/*background: #bbb;*/
+}
+.top{
+	width: 100%;
+	height: 20%;
+	display: flex;
+	flex-direction: column;
+	
+}
+.bendi{
+	width: 100%;
+	height: 30%;
+	font-size: 32px;
+	background: #6495ED;
+	padding-left: 3%;
+}
+.ztl{
+	width: 100%;
+	height: 40%;
+	display: flex;
+	border-bottom: solid 1px #aaa;
+}
+.ztl span{
+	font-size: 42px;
+	/*padding-top:3 ;*/
+	text-align: center;
+	flex: 1;
+}
+.topSize{
+	margin-top:2% ;
+	width: 100%;
+	height: 30%;
+	display: flex;
+	padding-top: 1%;
+	border-bottom: solid 2px #aaa;
+}
+.topLeft{
+	width: 30%;
+	height: 100%;
+	display: flex;
+}
+.topLeft span{
+	font-size: 24px;
+	color: cornflowerblue;
+	flex: 1;
+	text-align: center;
+}
+.topRight{
+	width: 40%;
+	height: 100%;
+	position: relative;
+	right: -35%;
+	/*left: 40%;*/
+	display: flex;
+	/*align-items: center;*/
+	justify-content: center;
+}
+.topRight span{
+	font-size: 24px;
+	color: cornflowerblue;
+	flex: 1;
+	text-align: center;
+}
+.box .cente{
+	width: 100%;
+	height: 70%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.box .cente div{
+	width: 100%;
+	line-height: 80px;
+	height: 12.5%;
+	flex: 1;
+	border-bottom: solid 1px #CCCCCC;
+	padding-left: 20px;
+}
+.cente div b{
+	font-size: 24px;
+}
+.bott{
+	width: 100%;
+	height: 10%;
+	background: skyblue;
+	display: flex;
+}
+.musicImg{
+	height: 100%;
+	width: 20%;
+	transition: all 2s;
+	transform: rotate(0deg);
+	animation: donghua  paused;
+	/*animation: donghua 5s;*/
+	/*animation-timing-function: 1000;*/
+	animation-iteration-count: infinite;
+}
+@keyframes donghua{
+	from{transform: rotate(0deg);}
+	to{transform: rotate(360deg);}
+}
+.bott .musicImg img{
+	height: 100px;
+	width: 100px;
+	margin-left: 25px;
+	border-radius: 100px;
+	
+}
+.bott  .text{
+	height: 100px;
+	width: 45%;
+	line-height: 100px;
+	text-align: center;
+	font-size: 30px;
+	color: #DF5000;
+}
+.bott .change{
+	width: 36%;
+	height: 100%;
+	position: relative;
+	/*right: -1%;*/
+	display: flex;
+}
+.bott .change span{
+	flex: 1;
+	width: 33%;
+	height: 100px;
+	line-height: 100px;
+	font-size: 48px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
